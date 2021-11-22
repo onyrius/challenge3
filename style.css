@@ -1,0 +1,38 @@
+body {
+  height: 800 px;
+  width: 1400 px;
+}
+
+main {
+  border: 1px solid rgb(139, 12, 133);
+  height: 800 px;
+  width: 1400 px;
+}
+
+#color-palette {
+  display: inline-block;
+  border: 2px solid red;
+}
+
+.color {
+  display: inline-block;
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+}
+
+#black-1 {
+  background-color: black;
+}
+
+#red-2 {
+  background-color: red;
+}
+
+#green-3 {
+  background-color: green;
+}
+
+#blue-4 {
+  background-color: blue;
+}
