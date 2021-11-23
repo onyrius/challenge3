@@ -16,7 +16,7 @@ main {
   text-align: center;
 }
 
-.color {
+.color , .selected {
   display: inline-block;
   border: 1px solid black;
   width: 40px;
@@ -62,4 +62,14 @@ main {
 
 .selected {
   margin: 0;
+}
+
+label {
+  border : 1px solid chocolate;
+  display: block;
+}
+
+button {
+  height: 20px;
+  width: 45px;
 }
