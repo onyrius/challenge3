@@ -29,4 +29,18 @@ console.log(typeof selectColor)
 //------------------------------------------------------------
 //pintar pixels do pixel-board com as cores da paleta de cores
 //------------------------------------------------------------
-let black = document.querySelector('#black');
+// --------criando as cores, onde a primeira é preta ----
+let blackColor = document.querySelector('#black');
+let aleatoryColorR = document.querySelector('#r');
+let aleatoryColorG = document.querySelector('#g');
+let aleatoryColorB = document.querySelector('#b');
+
+let radomColorR = Math.floor(Math.random()*255);
+let radomColorG = Math.floor(Math.random()*255);
+let radomColorB = Math.floor(Math.random()*255);
+
+aleatoryColorR.style.backgroundColor = 'rgb( '+radomColorR+' , 0 , 0)'
+aleatoryColorG.style.backgroundColor = 'rgb( 0 , '+radomColorG+', 0)'
+aleatoryColorB.style.backgroundColor = 'rgb(0 , 0 , '+radomColorB+')'
+
+/**Source https://www.youtube.com/watch?v=tUJvE4xfTgo&ab_channel=VictorRibeiro */

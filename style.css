@@ -30,7 +30,7 @@ main {
 }
 
 
-#black , .selected {
+#blackColor , .selected {
   background-color: black;
 }
 
