@@ -73,6 +73,9 @@ let clearBoard = document.querySelector('#clear-board');
 clearBoard.addEventListener('click', clear)
 function clear (event){
   if (event) {
-  pixel.classList.add('white')
+    let pixelsToClean = document.querySelectorAll('.pixel')
+  for(let pixelToClean of pixelsToClean ) {
+    pixelToClean.style.backgroundColor = 'white'
   }
+}
 }
