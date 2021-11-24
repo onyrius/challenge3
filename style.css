@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   height: 800 px;
   width: 1400 px;
@@ -16,7 +21,7 @@ main {
   text-align: center;
 }
 
-.color , .selected {
+.color {
   display: inline-block;
   border: 1px solid black;
   width: 40px;
@@ -25,20 +30,8 @@ main {
 }
 
 
-#black-1 {
+#black , .selected {
   background-color: black;
-}
-
-#red-2 {
-  background-color: red;
-}
-
-#green-3 {
-  background-color: green;
-}
-
-#blue-4 {
-  background-color: blue;
 }
 
 #pixel-board {
@@ -48,6 +41,7 @@ main {
   padding: 0;
   width: 230px;
   height: 230px;
+  text-align: center;
 }
 
 .pixel {
@@ -70,6 +64,13 @@ label {
 }
 
 button {
-  height: 20px;
-  width: 45px;
+  height: 28px;
+  width: 100px;
+  background-color: rgb(172, 169, 169);
+  text-align: center;
+  font-family: fantasy;
+}
+
+#clear-board {
+  background-color: white;
 }
