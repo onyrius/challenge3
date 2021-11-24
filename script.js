@@ -17,19 +17,19 @@ for (let index = 0; index < colors.length; index++) {
   let color = colors[index];
   color.addEventListener('click' , selectColor);  
 }
-function selectColor(selecionar) {
+function selectColor(selecionado) {
   for( let color of colors)
   color.classList.remove('selected')
-    selecionar.target.classList.add('selected')
-    let colorToPaint = selecionar.target
+    selecionado.target.classList.add('selected')
+    let colorToPaint = selecionado.target
     return colorToPaint
 }
-console.log(typeof selectColor)
+
 
 //------------------------------------------------------------
 //pintar pixels do pixel-board com as cores da paleta de cores
 //------------------------------------------------------------
-// --------criando as cores, onde a primeira é preta ----
+// -----criando as cores aleatórias que não se repetem, onde a primeira é sempre preta ----
 let blackColor = document.querySelector('#black');
 let aleatoryColorR = document.querySelector('#r');
 let aleatoryColorG = document.querySelector('#g');
@@ -44,3 +44,35 @@ aleatoryColorG.style.backgroundColor = 'rgb( 0 , '+radomColorG+', 0)'
 aleatoryColorB.style.backgroundColor = 'rgb(0 , 0 , '+radomColorB+')'
 
 /**Source https://www.youtube.com/watch?v=tUJvE4xfTgo&ab_channel=VictorRibeiro */
+
+//------- pintando os pixels do pixel-board  ---------
+// blackColor.addEventListener('click', paintPixel);
+// aleatoryColorR.addEventListener('click', paintPixel);
+// aleatoryColorG.addEventListener('click', paintPixel);
+// aleatoryColorB.addEventListener('click', paintPixel);
+
+pixelBoard.addEventListener('click', paintPixel)
+const colorPalette = document.getElementById('color-palette');
+
+function paintPixel (event) {
+  let pixelToPaint = document.querySelector('.selected');
+  const paintColor = window.getComputedStyle(pixelToPaint).backgroundColor
+
+event.target.style.backgroundColor = paintColor
+
+console.log(window.getComputedStyle(pixelToPaint).backgroundColor)
+}  
+
+  
+
+
+//----------------------------------------------------------------
+//--------------Botão Limpar -------------------------------------
+//----------------------------------------------------------------
+let clearBoard = document.querySelector('#clear-board');
+clearBoard.addEventListener('click', clear)
+function clear (event){
+  if (event) {
+  pixel.classList.add('white')
+  }
+}
