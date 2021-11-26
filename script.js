@@ -35,9 +35,9 @@ let aleatoryColorR = document.querySelector('#r');
 let aleatoryColorG = document.querySelector('#g');
 let aleatoryColorB = document.querySelector('#b');
 
-let radomColorR = Math.floor(Math.random()*255);
-let radomColorG = Math.floor(Math.random()*255);
-let radomColorB = Math.floor(Math.random()*255);
+let radomColorR = Math.random()*255;
+let radomColorG = Math.random()*255;
+let radomColorB = Math.random()*255;
 
 aleatoryColorR.style.backgroundColor = 'rgb( '+radomColorR+' , 0 , 0)'
 aleatoryColorG.style.backgroundColor = 'rgb( 0 , '+radomColorG+', 0)'
@@ -46,11 +46,6 @@ aleatoryColorB.style.backgroundColor = 'rgb(0 , 0 , '+radomColorB+')'
 /**Source https://www.youtube.com/watch?v=tUJvE4xfTgo&ab_channel=VictorRibeiro */
 
 //------- pintando os pixels do pixel-board  ---------
-// blackColor.addEventListener('click', paintPixel);
-// aleatoryColorR.addEventListener('click', paintPixel);
-// aleatoryColorG.addEventListener('click', paintPixel);
-// aleatoryColorB.addEventListener('click', paintPixel);
-
 pixelBoard.addEventListener('click', paintPixel)
 const colorPalette = document.getElementById('color-palette');
 
@@ -63,19 +58,44 @@ event.target.style.backgroundColor = paintColor
 console.log(window.getComputedStyle(pixelToPaint).backgroundColor)
 }  
 
-  
-
-
 //----------------------------------------------------------------
 //--------------Botão Limpar -------------------------------------
 //----------------------------------------------------------------
 let clearBoard = document.querySelector('#clear-board');
 clearBoard.addEventListener('click', clear)
-function clear (event){
-  if (event) {
+function clear (){
+  
     let pixelsToClean = document.querySelectorAll('.pixel')
   for(let pixelToClean of pixelsToClean ) {
     pixelToClean.style.backgroundColor = 'white'
-  }
+  
 }
+}
+//------------------------------------------------------------------
+//-----Pessoa usuária define tamanho do quadro----------------------
+//------------------------------------------------------------------
+// -------- define input e botão vqv--------------------------------
+let vqvButton = document.querySelector('#generate-board')
+vqvButton.addEventListener('click', verification)
+let input = document.querySelector('#board-size');
+
+function verification (){
+    let inputSize = document.querySelector('#board-size');
+    let size = parseInt(inputSize.value)
+    
+    if ( !size || (size < 1) || (size > 50) ) {
+      alert('Board inválido!') 
+    clear()
+    inputSize.value = ''
+}
+}
+
+vqvButton.addEventListener('click', defineSize)
+function defineSize(){
+let pixelBoardFlex = document.getElementById('pixel-board');
+newSize =  window.getComputedStyle(pixelBoardFlex).width 
+newSize 
+console.log(input.value);
+console.log(newSize);
+
 }

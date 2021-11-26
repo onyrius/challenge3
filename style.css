@@ -30,7 +30,7 @@ main {
 }
 
 
-#blackColor , .selected {
+#blackColor {
   background-color: black;
 }
 
@@ -77,4 +77,23 @@ button {
 
 .white {
   background-color: white;
+}
+
+#board-size {
+  border: 1px solid blueviolet;
+  height: 27px;
+  width: 30px;
+}
+
+#generate-board {
+  border: 1px solid blueviolet;
+  height: 30px;
+  width: 50px;
+  margin-right: 40px;
+}
+
+.container-button-size {
+  border: 1px solid rgb(248, 248, 248);
+  display: block;
+  text-align: center;
 }

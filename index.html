@@ -7,24 +7,31 @@
     <link rel="stylesheet" href="style.css">
     <title>Paleta de Cores</title>
 </head>
-<body>
-   <head><h1 id='title'>Paleta de Cores</h1></head> 
 
-   <main>
-       <section id='color-palette'>
-            <div class='selected color' id='black' ></div>
+<body>
+    <header><h1 id='title'>Paleta de Cores</h1></header> 
+
+    <main>
+        
+        <section id='color-palette'>
+            <div class='selected color' id='blackColor' ></div>
             <div id= "r" class='color'></div>
             <div id="g" class='color'></div>
             <div id="b" class='color' ></div>
+        </section>
 
-       </section>
-       <label for="clear-board"> 
-        <button id="clear-board" >Limpar</button>
-       </label>
-       <section id='pixel-board'>
-       
-       </section>      
-   </main>
+        <section class="container-button-size">
+            <input id= 'board-size' type="number" min="1">
+            <button id="generate-board">VQV</button>
+            <button id="clear-board" >Limpar</button>
+        </section>  
+
+        <section id='pixel-board'>
+        </section>
+
+    </main>
 </body>
+
 <script src="script.js"></script>
+
 </html>
