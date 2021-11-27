@@ -54,8 +54,6 @@ function paintPixel (event) {
   const paintColor = window.getComputedStyle(pixelToPaint).backgroundColor
 
 event.target.style.backgroundColor = paintColor
-
-console.log(window.getComputedStyle(pixelToPaint).backgroundColor)
 }  
 
 //----------------------------------------------------------------
@@ -90,12 +88,33 @@ function verification (){
 }
 }
 
-vqvButton.addEventListener('click', defineSize)
-function defineSize(){
-let pixelBoardFlex = document.getElementById('pixel-board');
-newSize =  window.getComputedStyle(pixelBoardFlex).width 
-newSize 
-console.log(input.value);
-console.log(newSize);
 
+vqvButton.addEventListener('click', defineSizeBoard)
+function defineSizeBoard(){
+  const pixelBoardFlex = document.getElementById('pixel-board');
+  newSizeBoard =  parseInt(window.getComputedStyle(pixelBoardFlex).width);
+  let inputValue = parseInt(input.value);
+if (inputValue <= 5 && inputValue > 50) {
+  pixelBoardFlex.style.width = '230px'
+  pixelBoardFlex.style.height = '230px'
+} else if ( inputValue > 5 && inputValue <=50){
+  newSizeBoard = inputValue*42
+  pixelBoardFlex.style.width = newSizeBoard.toString() + 'px';
+  pixelBoardFlex.style.height = newSizeBoard.toString() + 'px';
+  console.log(pixelBoardFlex)
+  for (let index = 26 ; index <= inputValue**2 ; index +=1) {
+    let newPixel = document.createElement('div');
+    pixelBoardFlex.innerHTML += '<div class="pixel"></div>'; 
+      newPixel.classList = 'pixel' 
+  console.log(pixelBoardFlex.length)
+  }
 }
+}
+
+
+
+
+
+/**Source : inspirações https://github.com/tryber/sd-018-b-project-pixels-art/pull/79/files
+ *        https://github.com/tryber/sd-018-b-project-pixels-art/pull/61/files
+ */

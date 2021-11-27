@@ -35,7 +35,7 @@ main {
 }
 
 #pixel-board {
-  display: inline-block;
+  display: inline-table;
   border: 2px solid rgb(10, 168, 37);
   margin: 0;
   padding: 0;
@@ -48,7 +48,7 @@ main {
   border: 1px solid black;
   width: 40px;
   height: 40px;
-  display: inline-block;
+  display: inline-flex;
   background-color: white;
   margin: 0;
   padding: 0;
