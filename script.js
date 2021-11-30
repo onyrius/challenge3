@@ -1,12 +1,20 @@
 //-------------------------------------------
 //criando o pixel board
 //-------------------------------------------
-const pixelBoard = document.querySelector('#pixel-board');
-const pixel = document.createElement('div')
-pixel.classList = 'pixel'
-for (let index = 0; index <25; index += 1) {
-  pixelBoard.innerHTML += '<div class="pixel"></div>';
+let pixelBoard = document.querySelector('#pixel-board');
+
+
+function addPixel(){
+
+for (let index = 1; index <=25; index += 1) {
+  let pixel = document.createElement('div')
+  pixel.classList = 'pixel'
+  pixelBoard.appendChild(pixel)
 }
+  
+}
+addPixel()
+
 /**Source https://www.ti-enxame.com/pt/javascript/crie-varias-divs-usando-um-loop/1053998065/ */
 
 //-------------------------------------------
@@ -39,13 +47,24 @@ let radomColorR = Math.random()*255;
 let radomColorG = Math.random()*255;
 let radomColorB = Math.random()*255;
 
-aleatoryColorR.style.backgroundColor = 'rgb( '+radomColorR+' , 0 , 0)'
-aleatoryColorG.style.backgroundColor = 'rgb( 0 , '+radomColorG+', 0)'
-aleatoryColorB.style.backgroundColor = 'rgb(0 , 0 , '+radomColorB+')'
+aleatoryColorR.style.backgroundColor = radomColor()
+aleatoryColorG.style.backgroundColor = radomColor()
+aleatoryColorB.style.backgroundColor = radomColor()
+
+function radomColor () {
+  let radomColorR = Math.random()*255;
+  let radomColorG = Math.random()*255;
+  let radomColorB = Math.random()*255;
+
+  let cor = 'rgb( '+radomColorR+' , '+radomColorG+' , '+radomColorB+')'
+  return cor
+}
+radomColor()
 
 /**Source https://www.youtube.com/watch?v=tUJvE4xfTgo&ab_channel=VictorRibeiro */
 
 //------- pintando os pixels do pixel-board  ---------
+
 pixelBoard.addEventListener('click', paintPixel)
 const colorPalette = document.getElementById('color-palette');
 
@@ -66,6 +85,7 @@ function clear (){
     let pixelsToClean = document.querySelectorAll('.pixel')
   for(let pixelToClean of pixelsToClean ) {
     pixelToClean.style.backgroundColor = 'white'
+    input.value = ""
   
 }
 }
@@ -76,15 +96,18 @@ function clear (){
 let vqvButton = document.querySelector('#generate-board')
 vqvButton.addEventListener('click', verification)
 let input = document.querySelector('#board-size');
-
+if (input < 5 && input > 50) {
+  pixelBoard
+}
 function verification (){
     let inputSize = document.querySelector('#board-size');
     let size = parseInt(inputSize.value)
     
-    if ( !size || (size < 1) || (size > 50) ) {
+    if ( !size || (size < 5) ) {
       alert('Board inválido!') 
     clear()
     inputSize.value = ''
+    
 }
 }
 
@@ -93,28 +116,55 @@ vqvButton.addEventListener('click', defineSizeBoard)
 function defineSizeBoard(){
   const pixelBoardFlex = document.getElementById('pixel-board');
   newSizeBoard =  parseInt(window.getComputedStyle(pixelBoardFlex).width);
-  let inputValue = parseInt(input.value);
-if (inputValue <= 5 && inputValue > 50) {
-  pixelBoardFlex.style.width = '230px'
-  pixelBoardFlex.style.height = '230px'
+
+let inputValue = parseInt(input.value);
+
+if (inputValue <= 5 ) {
+  pixelBoardFlex.style.width = '210px'
+  pixelBoardFlex.style.height = '210px'
 } else if ( inputValue > 5 && inputValue <=50){
-  newSizeBoard = inputValue*42
+  newSizeBoard = inputValue*40
   pixelBoardFlex.style.width = newSizeBoard.toString() + 'px';
   pixelBoardFlex.style.height = newSizeBoard.toString() + 'px';
-  console.log(pixelBoardFlex)
-  for (let index = 26 ; index <= inputValue**2 ; index +=1) {
-    let newPixel = document.createElement('div');
-    pixelBoardFlex.innerHTML += '<div class="pixel"></div>'; 
-      newPixel.classList = 'pixel' 
-  console.log(pixelBoardFlex.length)
+
+} else if (inputValue >= 50) {
+  newSizeBoard = 50*40
+  pixelBoardFlex.style.width = newSizeBoard.toString() + 'px';
+  pixelBoardFlex.style.height = newSizeBoard.toString() + 'px';
+}
+}
+vqvButton.addEventListener('click', addNewPixels)
+
+function addNewPixels() {
+  let input = document.querySelector('#board-size');
+  let inputValue = parseInt(input.value);
+
+  if (inputValue > 5 && inputValue < 50  ) {
+    let oldPixels = document.querySelectorAll('.pixel');
+    for ( let index = 0; index < oldPixels.length ; index +=1) {
+      oldPixels[index].remove()}
+    for (let numeroDeNewPixels = 0; numeroDeNewPixels < inputValue**2; numeroDeNewPixels++) {
+      let pixel = document.createElement('div')
+      pixel.classList = 'pixel'
+      pixelBoard.appendChild(pixel)
+    }
+  }else if (inputValue >= 50 ) {
+    let oldPixels = document.querySelectorAll('.pixel');
+    for ( let index = 0; index < oldPixels.length ; index +=1) {
+      oldPixels[index].remove()}
+      for (let numeroDeNewPixels = 0; numeroDeNewPixels < 50**2; numeroDeNewPixels++) {
+        let pixel = document.createElement('div')
+        pixel.classList = 'pixel'
+        pixelBoard.appendChild(pixel)
+
+    }  
   }
-}
-}
+  }
+  
 
 
 
-
-
+addNewPixels()
 /**Source : inspirações https://github.com/tryber/sd-018-b-project-pixels-art/pull/79/files
  *        https://github.com/tryber/sd-018-b-project-pixels-art/pull/61/files
  */
