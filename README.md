@@ -10,8 +10,8 @@
 <ul>
 <li><a href="https://github.com/onyrius/challenge1">challenge 1: Guess Color Project</a></li>
 <li><a href="https://github.com/onyrius/challenge2">challenge 2: Mistery Letter Project</a></li>
-<li><a href="https://github.com/onyrius/challenge4">challenge 4: Pixel Art Project</a></li>
-<li><a href="https://github.com/onyrius/challenge5">challenge 5: Guess Color Project</a></li>
+<li><a href="https://github.com/onyrius/challenge4">challenge 4: Todo list Project</a></li>
+<li><a href="https://github.com/onyrius/challenge5">challenge 5: Meme Generator Project</a></li>
 </ul>
 
 ---
