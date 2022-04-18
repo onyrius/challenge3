@@ -1,6 +1,6 @@
-# Week Challenge 2-5
+# Week Challenge 3-5
 
-## Mistery Letter Project
+## Pixel Art Project
 <p> Um jogo desenvolvido a partir da manipulação do DOM. Seria simples se fosse apenas este projeto naquela semana. Mas foram 5 projetos!! Uma semana intensa de atividades e riqueza de conteúdo. Uma das coisas que mais aprendi foi a gerir meu tempo diante de tantos afazeres </p>
 
 ---
